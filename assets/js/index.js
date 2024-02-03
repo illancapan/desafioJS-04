@@ -51,8 +51,8 @@ function construirHTMLPropiedad(propiedad) {
                     `<p class="text-success"><i class="fas fa-smoking"></i> Se permite fumar</p>` : 
                     `<p class="text-danger"><i class="fas fa-smoking-ban"></i> No se permite fumar</p>`}
                 ${propiedad.pets ? 
-                    `<p class="text-success"><i class="fas fa-dog"></i> Se permiten mascotas</p>` : 
-                    `<p class="text-danger"><i class="fas fa-dog-slash"></i> No se permiten mascotas</p>`}
+                    `<p class="text-success"><i class="fas fa-paw"></i> Se permiten mascotas</p>` : 
+                    `<p class="text-danger"><i class="fas fa-ban"></i> No se permiten mascotas</p>`}
             
                 </div>
         </div>

@@ -1,34 +1,5 @@
 import { propiedades_alquiler } from './propiedades.js';
 
-
-console.log('El archivo JS se ha cargado correctamente') 
-
-document.addEventListener('DOMContentLoaded', function() {
-    const propiedadesAlquilerContainer = document.getElementById('propiedadesAlquilerContainer');
-    for (let i = 0; i < 3; i++) {
-        const propiedad = propiedades_alquiler[i];
-        const propiedadHTML = construirHTMLPropiedad(propiedad);
-        propiedadesAlquilerContainer.innerHTML += propiedadHTML;
-    }
-
-    // const propiedadesAlquilerContainer = document.getElementById('propiedadesAlquilerContainer');
-    // for (let i = 0; i < 3; i++) {
-    //     const propiedad = propiedades_alquiler[i];
-    //     const propiedadHTML = construirHTMLPropiedad(propiedad);
-    //     propiedadesAlquilerContainer.innerHTML += propiedadHTML;
-    // }
-
-    const verMasVentaButton = document.getElementById('verMasVentaButton');
-    verMasVentaButton.addEventListener('click', function() {
-        window.location.href = 'venta.html';
-    });
-
-    const verMasAlquilerButton = document.getElementById('verMasAlquilerButton');
-    verMasAlquilerButton.addEventListener('click', function() {
-        window.location.href = 'alquiler.html';
-    });
-});
-
 document.addEventListener('DOMContentLoaded', function() {
     const propiedadesAlquilerContainer = document.getElementById('propiedadesAlquilerContainer');
 
@@ -48,8 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <i class="fas fa-bath"></i> ${propiedad.banos} Baños
                 </p>
                 <p><i class="fas fa-dollar-sign"></i> ${propiedad.costo}</p>
-                <p class="text-danger"><i class="fas fa-smoking-ban"></i> ${propiedad.permiteFumar ? 'Se permite fumar' : 'No se permite fumar'}</p>
-                <p class="text-danger"><i class="fa-solid fa-ban"></i> ${propiedad.permiteMascotas ? 'Se permiten mascotas' : 'No se permiten mascotas'}</p>
+                
+                ${propiedad.smoke ? 
+                    `<p class="text-success"><i class="fas fa-smoking"></i> Se permite fumar</p>` : 
+                    `<p class="text-danger"><i class="fas fa-smoking-ban"></i> No se permite fumar</p>`}
+                ${propiedad.pets ? 
+                    `<p class="text-success"><i class="fas fa-paw"></i> Se permiten mascotas</p>` : 
+                    `<p class="text-danger"><i class="fas fa-ban"></i> No se permiten mascotas</p>`}
             
                 </div>
         </div>

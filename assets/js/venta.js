@@ -1,17 +1,5 @@
 import { propiedades_venta } from './propiedades.js';
 
-
-console.log('el archivo js cargado correctamente LOLOLOL') 
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     const propiedadesVentaContainer = document.getElementById('propiedadesVentaContainer');
-//     for (let i = 0; i < 3; i++) {
-//         const propiedad = propiedades_venta[i];
-//         const propiedadHTML = construirHTMLPropiedad(propiedad);
-//         propiedadesVentaContainer.innerHTML += propiedadHTML;
-//     }
-// });
-
 document.addEventListener('DOMContentLoaded', function() {
     const propiedadesVentaContainer = document.getElementById('propiedadesVentaContainer');
 
@@ -32,8 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <i class="fas fa-bath"></i> ${propiedad.banos} Baños
                 </p>
                 <p><i class="fas fa-dollar-sign"></i> ${propiedad.costo}</p>
-                <p class="text-danger"><i class="fas fa-smoking-ban"></i> ${propiedad.permiteFumar ? 'Se permite fumar' : 'No se permite fumar'}</p>
-                <p class="text-danger"><i class="fa-solid fa-ban"></i> ${propiedad.permiteMascotas ? 'Se permiten mascotas' : 'No se permiten mascotas'}</p>
+                
+                ${propiedad.smoke ? 
+                    `<p class="text-success"><i class="fas fa-smoking"></i> Se permite fumar</p>` : 
+                    `<p class="text-danger"><i class="fas fa-smoking-ban"></i> No se permite fumar</p>`}
+                ${propiedad.pets ? 
+                    `<p class="text-success"><i class="fas fa-paw"></i> Se permiten mascotas</p>` : 
+                    `<p class="text-danger"><i class="fas fa-ban"></i> No se permiten mascotas</p>`}
             
                 </div>
         </div>
